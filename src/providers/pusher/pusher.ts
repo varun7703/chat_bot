@@ -9,8 +9,8 @@ export class PusherProvider {
   public _pusher : any;
 
   constructor(public http: HttpClient) {
-    this._pusher = new Pusher('APP_KEY', {
-      cluster: 'eu',
+    this._pusher = new Pusher('9ef68ef10d4530bcb886', {
+      cluster: 'ap2',
       encrypted: true
     });
   }

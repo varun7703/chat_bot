@@ -1,7 +1,7 @@
-import { ChatServiceProvider } from './../../providers/chat/chat';
-import { IChat } from './../../models/chatModel';
+import { ChatProvider } from '../../providers/chat/chat';
+import { IChat } from '../../models/chat';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 
 @Component({
@@ -21,6 +21,7 @@ export class HomePage {
       if(data.type !== 'bot'){
         data.isMe = true;
       };
+      console.log(data);
       this.chats.push(data);
     });
   }
@@ -33,5 +34,8 @@ export class HomePage {
       }, err => {
         this.sending = false;
       } );
+  }
+  clear(){
+    this.chats.pop();
   }
 }

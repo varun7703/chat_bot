@@ -8,12 +8,12 @@ import { Observable } from 'rxjs';
 export class ChatProvider {
 
 
-  private _url = 'http://localhost:5000';
+  private _url = 'http://infigp.in:3333';
 
   private _channel : any;
 
   constructor(public http: HttpClient, private _pusher : PusherProvider) {
-    this._channel = this._pusher.getPusher().subscribe('chat-bot');  
+    this._channel = this._pusher.getPusher().subscribe('chat_bot');  
   }
 
 

@@ -17,7 +17,7 @@
       appId: process.env.PUSHER_APP_ID,
       key: process.env.PUSHER_APP_KEY,
       secret: process.env.PUSHER_APP_SECRET,
-      cluster: 'eu',
+      cluster: 'ap2',
       encrypted: true
     })
 
@@ -30,19 +30,20 @@
         createdAt: new Date().toISOString()
       } 
       //update pusher listeners
-      pusher.trigger('chat-bot', 'chat', chat)
+      pusher.trigger('chat_bot', 'chat', chat)
 
 
       const message = chat.message;
       const response = await dialogFlow.send(message);
 
       // trigger this update to our pushers listeners
-      pusher.trigger('chat-bot', 'chat', {
+      pusher.trigger('chat_bot', 'chat', {
         message: `${response.data.result.fulfillment.speech}`,
         type : 'bot',
         createdAt : new Date().toISOString(),
         id: shortId.generate()
       })
+      console.log(chat);
       res.send(chat)
     })
 
