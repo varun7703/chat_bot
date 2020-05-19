@@ -6,11 +6,19 @@
           </button>
           </ion-buttons>
     <ion-title>ChatBot</ion-title>
+    <!-- <ion-item> -->
+        <!-- <ion-label stacked>Text</ion-label>
+        <ion-textarea rows="5" [(ngModel)]="text"></ion-textarea>
+      </ion-item>
+    
+      <button clear ion-button (click)="sayText()">Text to Speech</button> -->
+      <button clear ion-button (click)="sayText()">Text to Speech</button>
   </ion-navbar>
   
 </ion-header>
 
 <ion-content padding>
+   
     <div class="chats">
       <div class="chatbox">
         <div *ngFor="let chat of chats">
@@ -20,7 +28,7 @@
               <span class="time">{{chat.createdAt | date: 'HH:mm aaa'}}</span>
             </span>
           </div>
-          <div class="message received"  *ngIf="chat.type =='bot' && !chat.isMe">
+          <div class="message received"  *ngIf="chat.type =='bot' && !chat.isMe" >
             {{chat.message}}
             <span class="metadata">
               <span class="time">{{chat.createdAt | date: 'HH:mm aaa'}}</span>
@@ -29,13 +37,32 @@
         </div>
       </div>
       </div>
-
+    
   <ion-footer>
-      <p text-center *ngIf="sending">sending...</p>
+      <!-- <p text-center *ngIf="sending">sending...</p> -->
+     
       <div class="flex-items" padding>
+       <ion-item class="input_message">
+                   <ion-input [(ngModel)]="message" name="message"  placeholder="send message ..."> </ion-input>
+          <ion-icon (click)="start()" item-end name="mic" class="send"></ion-icon>
+        </ion-item>
+         <ion-icon (click)="sendMessage(chat)" class="send" name="send"></ion-icon>
+       
 
-          <ion-input [(ngModel)]="message" name="message" class="input_message" placeholder="send message ..."></ion-input>
-          <ion-icon (click)="sendMessage()" class="send" name="send"></ion-icon>
         </div>
+        <!-- <div padding [style.background-color]="bgcolor">
+          <button ion-button (click)="start()">Say</button>
+        </div> -->
+      
   </ion-footer>
+  <!-- <ion-card>
+		<ion-card-header>This is what I understood...</ion-card-header>
+		<ion-card-content>
+		  <ion-list>
+		    <ion-item *ngFor="let match of matches">
+		      {{ match }}
+		    </ion-item>
+		  </ion-list>
+		</ion-card-content>
+	</ion-card> -->
 </ion-content>

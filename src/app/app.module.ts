@@ -10,8 +10,8 @@ import { PusherProvider } from '../providers/pusher/pusher';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from '../pages/home/home';
-
-
+import {SpeechRecognition}from '@ionic-native/speech-recognition';
+import {TextToSpeech} from '@ionic-native/text-to-speech'; 
 @NgModule({
   declarations: [
     MyApp,
@@ -32,9 +32,14 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ChatProvider,
-    PusherProvider
+    PusherProvider,
+    SpeechRecognition,
+    TextToSpeech
+    
+    
   ]
 })
 export class AppModule {}
