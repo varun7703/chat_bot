@@ -3,13 +3,13 @@
     const express = require('express')
     const bodyParser = require('body-parser')
     const Pusher = require('pusher')
-    const cors = require('cors')
+    // const cors = require('cors')
     require('dotenv').config()
     const shortId = require('shortid') 
     const dialogFlow = require('./dialogFlow')
 
     const app = express()
-    app.use(cors())
+    // app.use(cors())
     app.use(bodyParser.urlencoded({ extended: false }))
     app.use(bodyParser.json())
 
@@ -20,6 +20,7 @@
       cluster: 'ap2',
       encrypted: true
     })
+    
 
     app.post('/message', async (req, res) => {
       // simulate actual db save with id and createdAt added

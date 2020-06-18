@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ChatProvider {
 
 
-  private _url = 'http://172.31.0.0:3333';
+  private _url = 'https://nameless-dusk-11636.herokuapp.com';
 
   private _channel : any;
 
